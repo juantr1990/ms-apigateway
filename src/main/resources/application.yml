@@ -1,0 +1,9 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+      - id: service-customer
+        uri: http://localhost:9040/
+        predicates:
+          - Path=/customer/**
+          
