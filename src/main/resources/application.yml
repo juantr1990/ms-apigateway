@@ -1,9 +1,19 @@
+server:
+  port: 8099
+
 spring:
   cloud:
     gateway:
+      default-filters:
+      - name: GlobalFilter
       routes:
       - id: service-customer
         uri: http://localhost:9040/
         predicates:
           - Path=/customer/**
+        filters:
+        - PreFilter
+        - PostFilter
+  application:
+    name: service-apigateway 
           
