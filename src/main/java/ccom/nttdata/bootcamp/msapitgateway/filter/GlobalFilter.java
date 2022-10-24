@@ -17,7 +17,7 @@ public class GlobalFilter extends AbstractGatewayFilterFactory<GlobalFilter.Conf
 
 	@Override
 	public GatewayFilter apply(Config config) {
-		System.out.println("inside MsGatewayGlobalFilter.apply method");
+		System.out.println("inside GlobalFilter.apply method");
 		
 		return (exchange, chain) -> {
 			ServerHttpRequest request = exchange.getRequest().mutate().header("msgateway-global-header", Math.random()*10+"").build();

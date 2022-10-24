@@ -17,7 +17,7 @@ public class PostFilter extends AbstractGatewayFilterFactory<PostFilter.Config> 
 	
 	@Override
 	public GatewayFilter apply(Config config) {
-		System.out.println("inside MsGatewayPostFilter.apply method...");
+		System.out.println("inside PostFilter.apply method...");
 		
 		return(exchange, chain)->{
 			return chain.filter(exchange).then(Mono.fromRunnable(()->{
