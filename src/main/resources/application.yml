@@ -11,9 +11,16 @@ spring:
       - name: GlobalFilter
       routes:
       - id: service-customer
-        uri: http://localhost:9040/
+        uri: lb://service-customer
         predicates:
           - Path=/customer/**
+        filters:
+        - PreFilter
+        - PostFilter
+      - id: service-accountcustomer
+        uri: lb://service-accountcustomer
+        predicates:
+          - Path=/accountcustomer/**,/creditcardaccount/**
         filters:
         - PreFilter
         - PostFilter
